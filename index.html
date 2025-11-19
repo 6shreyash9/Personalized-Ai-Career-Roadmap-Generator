@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerSync AI - Premium Career Guidance Platform</title>
+    
+    <!-- GSAP Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="animated-bg" id="animatedBg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+        <div class="gradient-orb orb-4"></div>
+    </div>
+
+    <div class="floating-icons">
+        <div class="tech-icon icon-1">⚛️</div>
+        <div class="tech-icon icon-2">🤖</div>
+        <div class="tech-icon icon-3">💻</div>
+        <div class="tech-icon icon-4">🚀</div>
+        <div class="tech-icon icon-5">⚡</div>
+    </div>
+
+    <header>
+        <div class="logo" onclick="goHome()">🚀 CareerSync AI</div>
+        <div class="controls">
+            <button class="home-btn" onclick="goHome()">🏠 Home</button>
+            <span class="toggle-icon" onclick="toggleAnimations()">✨</span>
+            <span class="toggle-icon" onclick="toggleIcons()">🎯</span>
+        </div>
+    </header>
+
+    <div class="keyboard-hint" id="keyboardHint">
+        Press <span class="kbd">Enter</span> to continue
+    </div>
+
+    <section class="hero" id="hero">
+        <h1>Your AI-Powered<br>Tech Career Navigator</h1>
+        <p>Discover your perfect career path in Computer Science, AI/ML, Data Science, and emerging technologies</p>
+        <button class="cta-btn" onclick="startQuestionnaire()">Begin Your Journey</button>
+    </section>
+
+    <div class="questionnaire-container" id="questionnaireContainer">
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <div class="question-card active" data-question="1">
+            <div class="question-header">
+                <span class="question-number">Question 1 of 7</span>
+            </div>
+            <h3 class="question-text">Which tech domains fascinate you the most?</h3>
+            <div class="options-container">
+                <label class="option-btn">
+                    <input type="checkbox" class="option-checkbox" value="web-dev" data-category="domain">
+                    <span>🌐 Web Development (Frontend, Backend, Full-Stack)</span>
+                </label>
+                <label class="option-btn">
+                    <input type="checkbox" class="option-checkbox" value="ai-ml" data-category="domain">
+                    <span>🤖 Artificial Intelligence & Machine Learning</span>
+                </label>
+                <label class="option-btn">
+                    <input type="checkbox" class="option-checkbox" value="data-science" data-category="domain">
+                    <span>📊 Data Science & Analytics</span>
+                </label>
+                <label class="option-btn">
+                    <input type="checkbox" class="option-checkbox" value="mobile-dev" data-category="domain">
+                    <span>📱 Mobile App Development</span>
+                </label>
+                <label class="option-btn">
+                    <input type="checkbox" class="option-checkbox" value="cloud-devops" data-category="domain">
+                    <span>☁️ Cloud Computing & DevOps</span>
+                </label>
+                <label class="option-btn">
+                    <input type="checkbox" class="option-checkbox" value="cybersecurity" data-category="domain">
+                    <span>🔐 Cybersecurity & Ethical Hacking</span>
+                </label>
+                <label class="option-btn">
+                    <input type="checkbox" class="option-checkbox" value="blockchain" data-category="domain">
+                    <span>⛓️ Blockchain & Web3 Development</span>
+                </label>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-btn" onclick="prevQuestion()" disabled>Previous</button>
+                <button class="nav-btn" onclick="nextQuestion()">Next</button>
+            </div>
+        </div>
+
+        <div class="question-card" data-question="2">
+            <div class="question-header">
+                <span class="question-number">Question 2 of 7</span>
+            </div>
+            <h3 class="question-text">Which programming languages/frameworks interest you?</h3>
+            <div class="options-container">
+                <label class="option-btn">
+                    <input type="checkbox" class="option-checkbox" value="javascript-ts" data-category="tech">
+                    <span>⚡ JavaScript/TypeScript (React, Node.js, Next.js)</span>
+                </label>
+                <label class="option-btn">
+                    <input type="checkbox" class="option-checkbox" value="python" data-category="tech">
+                    <span>🐍 Python (Django, Flask, FastAPI, TensorFlow)</span>
+                </label>
+                <label class="option-btn">
+                    <input type="checkbox" class="option-checkbox" value="java-kotlin" data-category="tech">
+                    <span>☕ Java/Kotlin (Spring Boot, Android)</span>
+                </label>
+                <label class="option-btn">
+                    <input type="checkbox" class="option-checkbox" value="cpp-rust" data-category="tech">
+                    <span>⚙️ C++/Rust (System Programming)</span>
+                </label>
+                <label class="option-btn">
+                    <input type="checkbox" class="option-checkbox" value="go-scala" data-category="tech">
+                    <span>🚀 Go/Scala (Distributed Systems)</span>
+                </label>
+                <label class="option-btn">
+                    <input type="checkbox" class="option-checkbox" value="sql-nosql" data-category="tech">
+                    <span>💾 SQL/NoSQL (Databases)</span>
+                </label>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-btn" onclick="prevQuestion()">Previous</button>
+                <button class="nav-btn" onclick="nextQuestion()">Next</button>
+            </div>
+        </div>
+
+        <div class="question-card" data-question="3">
+            <div class="question-header">
+                <span class="question-number">Question 3 of 7</span>
+            </div>
+            <h3 class="question-text">What type of technical challenges excite you?</h3>
+            <div class="options-container">
+                <label class="option-btn">
+                    <input type="checkbox" class="option-checkbox" value="ui-ux" data-category="challenges">
+                    <span>🎨 Building user interfaces</span>
+                </label>
+                <label class="option-btn">
+                    <input type="checkbox" class="option-checkbox" value="algorithms" data-category="challenges">
+                    <span>🧮 Solving algorithms</span>
+                </label>
+                <label class="option-btn">
+                    <input type="checkbox" class="option-checkbox" value="ml-models" data-category="challenges">
+                    <span>🧠 Training ML models</span>
+                </label>
+                <label class="option-btn">
+                    <input type="checkbox" class="option-checkbox" value="scalability" data-category="challenges">
+                    <span>📈 System optimization</span>
+                </label>
+                <label class="option-btn">
+                    <input type="checkbox" class="option-checkbox" value="security" data-category="challenges">
+                    <span>🛡️ Security implementation</span>
+                </label>
+                <label class="option-btn">
+                    <input type="checkbox" class="option-checkbox" value="data-analysis" data-category="challenges">
+                    <span>📉 Data analysis</span>
+                </label>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-btn" onclick="prevQuestion()">Previous</button>
+                <button class="nav-btn" onclick="nextQuestion()">Next</button>
+            </div>
+        </div>
+
+        <div class="question-card" data-question="4">
+            <div class="question-header">
+                <span class="question-number">Question 4 of 7</span>
+            </div>
+            <h3 class="question-text">What are your career aspirations?</h3>
+            <div class="options-container">
+                <label class="option-btn">
+                    <input type="checkbox" class="option-checkbox" value="product-companies" data-category="career">
+                    <span>🏢 Top tech companies (FAANG)</span>
+                </label>
+                <label class="option-btn">
+                    <input type="checkbox" class="option-checkbox" value="startup" data-category="career">
+                    <span>🚀 Build startups</span>
+                </label>
+                <label class="option-btn">
+                    <input type="checkbox" class="option-checkbox" value="research" data-category="career">
+                    <span>🔬 Research in AI/ML</span>
+                </label>
+                <label class="option-btn">
+                    <input type="checkbox" class="option-checkbox" value="freelance" data-category="career">
+                    <span>💼 Freelancing</span>
+                </label>
+                <label class="option-btn">
+                    <input type="checkbox" class="option-checkbox" value="tech-lead" data-category="career">
+                    <span>👨‍💼 Tech leadership</span>
+                </label>
+                <label class="option-btn">
+                    <input type="checkbox" class="option-checkbox" value="product-manager" data-category="career">
+                    <span>📋 Product Management</span>
+                </label>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-btn" onclick="prevQuestion()">Previous</button>
+                <button class="nav-btn" onclick="nextQuestion()">Next</button>
+            </div>
+        </div>
+
+        <div class="question-card" data-question="5">
+            <div class="question-header">
+                <span class="question-number">Question 5 of 7</span>
+            </div>
+            <h3 class="question-text">Preferred work environment?</h3>
+            <div class="options-container">
+                <label class="option-btn">
+                    <input type="checkbox" class="option-checkbox" value="fast-paced" data-category="workstyle">
+                    <span>⚡ Fast-paced startups</span>
+                </label>
+                <label class="option-btn">
+                    <input type="checkbox" class="option-checkbox" value="structured" data-category="workstyle">
+                    <span>🏛️ Structured enterprise</span>
+                </label>
+                <label class="option-btn">
+                    <input type="checkbox" class="option-checkbox" value="remote-first" data-category="workstyle">
+                    <span>🌍 Remote-first</span>
+                </label>
+                <label class="option-btn">
+                    <input type="checkbox" class="option-checkbox" value="research-lab" data-category="workstyle">
+                    <span>🧪 Research labs</span>
+                </label>
+                <label class="option-btn">
+                    <input type="checkbox" class="option-checkbox" value="solo-projects" data-category="workstyle">
+                    <span>🎯 Independent projects</span>
+                </label>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-btn" onclick="prevQuestion()">Previous</button>
+                <button class="nav-btn" onclick="nextQuestion()">Next</button>
+            </div>
+        </div>
+
+        <div class="question-card" data-question="6">
+            <div class="question-header">
+                <span class="question-number">Question 6 of 7</span>
+            </div>
+            <h3 class="question-text">How do you learn best?</h3>
+            <div class="options-container">
+                <label class="option-btn">
+                    <input type="checkbox" class="option-checkbox" value="project-based" data-category="learning">
+                    <span>🛠️ Building projects</span>
+                </label>
+                <label class="option-btn">
+                    <input type="checkbox" class="option-checkbox" value="courses" data-category="learning">
+                    <span>🎓 Online courses</span>
+                </label>
+                <label class="option-btn">
+                    <input type="checkbox" class="option-checkbox" value="documentation" data-category="learning">
+                    <span>📚 Reading documentation</span>
+                </label>
+                <label class="option-btn">
+                    <input type="checkbox" class="option-checkbox" value="hackathons" data-category="learning">
+                    <span>🏆 Hackathons</span>
+                </label>
+                <label class="option-btn">
+                    <input type="checkbox" class="option-checkbox" value="opensource" data-category="learning">
+                    <span>🌟 Open-source</span>
+                </label>
+                <label class="option-btn">
+                    <input type="checkbox" class="option-checkbox" value="mentorship" data-category="learning">
+                    <span>👥 Mentorship</span>
+                </label>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-btn" onclick="prevQuestion()">Previous</button>
+                <button class="nav-btn" onclick="nextQuestion()">Next</button>
+            </div>
+        </div>
+
+        <div class="question-card" data-question="7">
+            <div class="question-header">
+                <span class="question-number">Question 7 of 7</span>
+            </div>
+            <h3 class="question-text">Which tech trends excite you?</h3>
+            <div class="options-container">
+                <label class="option-btn">
+                    <input type="checkbox" class="option-checkbox" value="generative-ai" data-category="trends">
+                    <span>🎨 Generative AI</span>
+                </label>
+                <label class="option-btn">
+                    <input type="checkbox" class="option-checkbox" value="edge-computing" data-category="trends">
+                    <span>📡 Edge Computing</span>
+                </label>
+                <label class="option-btn">
+                    <input type="checkbox" class="option-checkbox" value="quantum" data-category="trends">
+                    <span>⚛️ Quantum Computing</span>
+                </label>
+                <label class="option-btn">
+                    <input type="checkbox" class="option-checkbox" value="web3-defi" data-category="trends">
+                    <span>🪙 Web3 & DeFi</span>
+                </label>
+                <label class="option-btn">
+                    <input type="checkbox" class="option-checkbox" value="ar-vr" data-category="trends">
+                    <span>🥽 AR/VR</span>
+                </label>
+                <label class="option-btn">
+                    <input type="checkbox" class="option-checkbox" value="mlops" data-category="trends">
+                    <span>🔄 MLOps</span>
+                </label>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-btn" onclick="prevQuestion()">Previous</button>
+                <button class="nav-btn" onclick="generateRoadmap()">Generate Roadmap</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="roadmap-container" id="roadmapContainer">
+        <div class="roadmap-header">
+            <h2>Your Personalized Career Recommendations</h2>
+            <p class="match-score">Based on your responses, here are your top career matches</p>
+        </div>
+
+        <div class="career-options" id="careerOptions"></div>
+
+        <div id="selectedRoadmap" style="display: none;">
+            <div style="text-align: center; margin-bottom: 60px;">
+                <div class="career-title" id="careerTitle"></div>
+                <p class="career-description" id="careerDescription"></p>
+            </div>
+
+            <div class="timeline" id="timeline"></div>
+        </div>
+
+        <div style="text-align: center; margin-top: 80px;">
+            <button class="cta-btn" onclick="goHome()">Start Over</button>
+        </div>
+    </div>
+
+    <div class="chatbot-toggle" onclick="toggleChatbot()">
+        <span class="chatbot-icon">💬</span>
+    </div>
+
+    <div class="chatbot-window" id="chatbotWindow">
+        <div class="chatbot-header">
+            <span class="chatbot-title">AI Career Assistant</span>
+            <button class="close-chat" onclick="toggleChatbot()">✕</button>
+        </div>
+        <div class="chatbot-messages" id="chatMessages">
+            <div class="message bot">
+                Hey there! 👋 I'm your AI career guide. Ask me anything!
+            </div>
+        </div>
+        <div class="chatbot-input-area">
+            <input type="text" class="chatbot-input" id="chatInput" placeholder="Ask me anything...">
+            <button class="send-btn" onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
